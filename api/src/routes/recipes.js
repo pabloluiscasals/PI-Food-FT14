@@ -92,6 +92,7 @@ router.get('/:id', async (req, res) => {
   }
   
 });
+
  router.post("/recipe", async (req, res) => {
     const newRecipe = req.body;
     console.log(newRecipe);

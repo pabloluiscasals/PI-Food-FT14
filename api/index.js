@@ -30,6 +30,7 @@ conn.sync({ force: true }).then(() => {
   console.log("dB ready");
   server.listen(3001, () => {
     console.log('%s listening at 3001');// eslint-disable-line no-console
+    if (Type.length === 0) {
     const data = async () => {
       try {
         let dietsAPI = await axios.get(
@@ -54,5 +55,6 @@ conn.sync({ force: true }).then(() => {
       }
     }
     data();
+  };
   });
 });

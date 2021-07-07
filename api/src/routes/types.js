@@ -7,13 +7,13 @@ const { API_KEY } = process.env;
 const { Recipe, Type } = require("../db.js");
 
 router.get("/", async (req, res) => {
-try {
-  let dietsdb = await Type.findAll();
-  res.send(dietsdb);
-} catch (error) {
-  console.log(error);
-}  
-})
+  try {
+    let dietsdb = await Type.findAll();
+    res.send(dietsdb);
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 // get para obtener los tipos de dietas de la API y precargarlos en la dB
 

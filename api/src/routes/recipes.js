@@ -63,7 +63,9 @@ router.get("/", async (req, res) => {
         return recipe;
       });
       recipesResult = recipesResult.concat(recipesAPIFull);
-      let recipesDB = await Recipe.findAll();
+      let recipesDB = await Recipe.findAll({
+        include: [Type],
+      });
       recipesResult = recipesResult.concat(recipesDB);
       recipesResult.sort(function (a, b) {
         if (a.title > b.title) {
@@ -101,7 +103,9 @@ router.get("/", async (req, res) => {
         return recipe;
       });
       recipesResult = recipesResult.concat(recipesAPIFull);
-      let recipesDB = await Recipe.findAll();
+      let recipesDB = await Recipe.findAll({
+        include: [Type],
+      });
       recipesResult = recipesResult.concat(recipesDB);
       recipesResult.sort(function (b, a) {
         if (a.title > b.title) {
@@ -139,7 +143,9 @@ router.get("/", async (req, res) => {
         return recipe;
       });
       recipesResult = recipesResult.concat(recipesAPIFull);
-      let recipesDB = await Recipe.findAll();
+      let recipesDB = await Recipe.findAll({
+        include: [Type],
+      });
       recipesResult = recipesResult.concat(recipesDB);
       recipesResult.sort(function (a, b) {
         if (a.spoonacularScore > b.spoonacularScore) {
@@ -177,7 +183,9 @@ router.get("/", async (req, res) => {
         return recipe;
       });
       recipesResult = recipesResult.concat(recipesAPIFull);
-      let recipesDB = await Recipe.findAll();
+      let recipesDB = await Recipe.findAll({
+        include: [Type],
+      });
       recipesResult = recipesResult.concat(recipesDB);
       recipesResult.sort(function (b, a) {
         if (a.spoonacularScore > b.spoonacularScore) {
@@ -215,7 +223,9 @@ router.get("/", async (req, res) => {
         return recipe;
       });
       recipesResult = recipesResult.concat(recipesAPIFull);
-      let recipesDB = await Recipe.findAll();
+      let recipesDB = await Recipe.findAll({
+        include: [Type],
+      });
       recipesResult = recipesResult.concat(recipesDB);
       res.send(recipesResult);
     } catch (error) {

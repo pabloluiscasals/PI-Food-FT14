@@ -30,6 +30,7 @@ conn.sync({ force: true }).then(() => {
   console.log("dB ready");
   server.listen(3001, () => {
     console.log('%s listening at 3001');// eslint-disable-line no-console
+// if the diets table is empty gets them from the API
     if (Type.length === 0) {
     const data = async () => {
       try {

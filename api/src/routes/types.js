@@ -6,6 +6,7 @@ const { API_KEY } = process.env;
 
 const { Recipe, Type } = require("../db.js");
 
+// gets a list of diets from the dB
 router.get("/", async (req, res) => {
   try {
     let dietsdb = await Type.findAll();
@@ -15,8 +16,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-// get para obtener los tipos de dietas de la API y precargarlos en la dB
-
+// getting al the diets from the API
 // router.get("/", async (req, res) => {
 //   try {
 //     let dietsAPI = await axios.get(

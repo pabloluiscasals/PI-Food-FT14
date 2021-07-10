@@ -10,7 +10,7 @@ const { Recipe, Type } = require("../db.js");
 
 router.get("/", async (req, res) => {
   let { name, order } = req.query;
-
+// Search by name
   if (name) {
     try {
       let recipeSearch = [];
@@ -40,8 +40,9 @@ router.get("/", async (req, res) => {
     } catch (error) {
       console.log(error);
     }
+    // order by tutle Ascendent
   } else if (req.query.order === "titleASC") {
-    console.log(req.query.order);
+    console.log("title ASCC");
     try {
       let recipesResult = [];
       let recipesAPI = await axios.get(
@@ -80,8 +81,9 @@ router.get("/", async (req, res) => {
     } catch (error) {
       console.log(error);
     }
+    // order by title Descendent
   } else if (req.query.order === "titleDESC") {
-    console.log("2");
+    console.log("title DESC");
     try {
       let recipesResult = [];
       let recipesAPI = await axios.get(
@@ -120,8 +122,9 @@ router.get("/", async (req, res) => {
     } catch (error) {
       console.log(error);
     }
+    // order by spoonacularScore Ascendent
   } else if (req.query.order === "spoonacularScoreASC") {
-    console.log("2");
+    console.log("spoonacularScoreASC");
     try {
       let recipesResult = [];
       let recipesAPI = await axios.get(
@@ -160,8 +163,9 @@ router.get("/", async (req, res) => {
     } catch (error) {
       console.log(error);
     }
+    // order by spoonacularScore Descendent
   } else if (req.query.order === "spoonacularScoreDESC") {
-    console.log("2");
+    console.log("SpoonacularScore DESC");
     try {
       let recipesResult = [];
       let recipesAPI = await axios.get(
@@ -201,7 +205,7 @@ router.get("/", async (req, res) => {
       console.log(error);
     }
   } else {
-    console.log("3");
+    console.log("get all recipes");
     try {
       let recipesResult = [];
       let recipesAPI = await axios.get(
@@ -237,6 +241,7 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   let { id } = req.params;
   try {
+    // if id includes a "-", searchs in the dB
     if (id.includes("-")) {
       const recipeDB = await Recipe.findOne({
         where: { id },
@@ -248,6 +253,7 @@ router.get("/:id", async (req, res) => {
       });
       res.send(recipeDB);
     } else {
+      // searchs by id in the API
       let recipeAPI = await axios.get(
         `https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}`
       );
@@ -284,6 +290,7 @@ router.post("/recipe", async (req, res) => {
         analyzedInstructions: newRecipe.analyzedInstructions,
       },
     });
+    // saves the diets as an array of ids
     await recipe.addType(newRecipe.diets);
     return res.send(recipe);
   } catch (error) {

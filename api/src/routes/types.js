@@ -7,11 +7,12 @@ const { API_KEY } = process.env;
 const { Recipe, Type } = require("../db.js");
 
 // gets a list of diets from the dB
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   try {
     let dietsdb = await Type.findAll();
     res.send(dietsdb);
   } catch (error) {
+    next(error);
     console.log(error);
   }
 });

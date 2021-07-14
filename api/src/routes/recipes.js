@@ -8,7 +8,7 @@ const { v4: uuidv4 } = require("uuid");
 
 const { Recipe, Type } = require("../db.js");
 
-router.get("/", async (req, res) => {
+router.get("/", async (req, res, next) => {
   let { name, order } = req.query;
 // Search by name
   if (name) {
@@ -38,6 +38,7 @@ router.get("/", async (req, res) => {
       recipeSearch = recipeSearch.concat(recipesAPIFull);
       res.send(recipeSearch);
     } catch (error) {
+      next(error);
       console.log(error);
     }
     // order by tutle Ascendent
@@ -79,6 +80,7 @@ router.get("/", async (req, res) => {
       });
       res.send(recipesResult);
     } catch (error) {
+      next(error);
       console.log(error);
     }
     // order by title Descendent
@@ -120,6 +122,7 @@ router.get("/", async (req, res) => {
       });
       res.send(recipesResult);
     } catch (error) {
+      next(error);
       console.log(error);
     }
     // order by spoonacularScore Ascendent
@@ -161,6 +164,7 @@ router.get("/", async (req, res) => {
       });
       res.send(recipesResult);
     } catch (error) {
+      next(error);
       console.log(error);
     }
     // order by spoonacularScore Descendent
@@ -202,6 +206,7 @@ router.get("/", async (req, res) => {
       });
       res.send(recipesResult);
     } catch (error) {
+      next(error);
       console.log(error);
     }
   } else {
@@ -233,12 +238,13 @@ router.get("/", async (req, res) => {
       recipesResult = recipesResult.concat(recipesDB);
       res.send(recipesResult);
     } catch (error) {
+      next(error);
       console.log(error);
     }
   }
 });
 
-router.get("/:id", async (req, res) => {
+router.get("/:id", async (req, res, next) => {
   let { id } = req.params;
   try {
     // if id includes a "-", searchs in the dB
@@ -272,11 +278,12 @@ router.get("/:id", async (req, res) => {
       res.send(recipe);
     }
   } catch (error) {
+    next(error);
     console.log(error);
   }
 });
 
-router.post("/recipe", async (req, res) => {
+router.post("/recipe", async (req, res, next) => {
   const newRecipe = req.body;
   console.log(newRecipe);
   try {
@@ -294,6 +301,7 @@ router.post("/recipe", async (req, res) => {
     await recipe.addType(newRecipe.diets);
     return res.send(recipe);
   } catch (error) {
+    next(error);
     console.log(error);
   }
 });

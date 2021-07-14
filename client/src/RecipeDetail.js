@@ -23,11 +23,11 @@ function RecipeDetail() {
       <div>
         <h1>{recipeDetail.title}</h1>
         <img src={recipeDetail.image} alt="" />
-        <p>{recipeDetail.summary}</p>
-        <p>{recipeDetail.spoonacularScore}</p>
-        <p>{recipeDetail.healthScore}</p>
-        <p>{recipeDetail.analyzedInstructions}</p>
-        <p>{recipeDetail.diets}</p>
+        <p>Summary: {recipeDetail.summary}</p>
+        <p>Score: {recipeDetail.spoonacularScore}</p>
+        <p>Health Score: {recipeDetail.healthScore}</p>
+        <p>Instrucctions: {recipeDetail.analyzedInstructions}</p>
+        <p>Type of diets: {recipeDetail.diets}</p>
       </div>
     );
   }

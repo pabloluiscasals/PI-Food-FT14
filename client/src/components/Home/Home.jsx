@@ -134,7 +134,7 @@ const Home = () => {
       <div > 
       {RecipesCards()}
       </div>
-      <div>
+      <div className="pagination">
         {buttons().map((button) => (
           <button key={button} value={button} onClick={(e) => changePage(e)}>
             {button + 1}

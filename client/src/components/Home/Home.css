@@ -1,17 +1,28 @@
 .recipes {
     display: flex;
-    
     align-items: center;
     background-color: bisque;
     width: 98vw;
     height: auto;
     flex-wrap: wrap;
-  
+    padding: 10px;
+}
+.recipes a{
+   
+    text-decoration: none;
+    color: rgb(0, 104, 95);
+   
 }
 .filters{
     display: flex;
     justify-content: space-evenly;
     background-color: rgb(78, 78, 78);
     color: white;
+}
+.pagination{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(78, 78, 78);
 }
 

@@ -297,6 +297,7 @@ router.post("/recipe", async (req, res, next) => {
         analyzedInstructions: newRecipe.analyzedInstructions,
       },
     });
+      
     // saves the diets as an array of ids
     await recipe.addType(newRecipe.diets);
     return res.send(recipe);

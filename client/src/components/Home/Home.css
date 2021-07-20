@@ -1,0 +1,17 @@
+.recipes {
+    display: flex;
+    
+    align-items: center;
+    background-color: bisque;
+    width: 98vw;
+    height: auto;
+    flex-wrap: wrap;
+  
+}
+.filters{
+    display: flex;
+    justify-content: space-evenly;
+    background-color: rgb(78, 78, 78);
+    color: white;
+}
+

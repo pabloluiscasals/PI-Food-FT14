@@ -98,7 +98,7 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(getAllRecipes());
-    dispatch(getAllDiets());
+    //dispatch(getAllDiets());
   }, [dispatch]);
 
   console.log(recipes);

@@ -20,7 +20,7 @@
     color: white;
 }
 .pagination{
-    display: flex;
+    display: flex;  
     align-items: center;
     justify-content: center;
     background-color: rgb(78, 78, 78);

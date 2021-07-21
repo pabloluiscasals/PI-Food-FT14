@@ -8,6 +8,7 @@ import {
   SET_RECIPE_FAIL,
   SET_DIETS,
 } from "../actionNames";
+
 export function getAllRecipes() {
   return async (dispatch) => {
     try {

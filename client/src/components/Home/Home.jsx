@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getAllRecipes, getAllDiets } from "../../actions/index";
+import { getAllRecipes } from "../../actions/index";
 import React from "react";
 import RecipeCard from "../RecipeCard/RecipeCard";
 import Navbar from "../Navbar/Navbar";
@@ -10,7 +10,6 @@ const Home = () => {
   const dispatch = useDispatch();
   const recipes = useSelector((state) => state.recipes);
   const loading = useSelector((state) => state.loading);
-  const diets = useSelector((state) => state.diets);
   const [order, setOrder] = useState("");
   const [filterDiets, setfilterDiets] = useState("");
   const [pageNumer, setPageNumber] = useState(0);
@@ -57,6 +56,8 @@ const Home = () => {
       );
     }
   };
+
+  
 
   //order by Title or by SpoonacularScore
   const handleInputChangeOrder = (e) => {
@@ -121,6 +122,8 @@ const Home = () => {
           <option value="vegan">Vegan</option>
         </select>
         
+    
+
       </div>
       <label>Order by: </label>
       <select onChange={(e) => handleInputChangeOrder(e)} id="order">

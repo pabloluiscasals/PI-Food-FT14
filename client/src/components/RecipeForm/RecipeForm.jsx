@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 //import Select from "react-select"
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
 import { postRecipe } from "../../actions/index";
 import Navbar from "../Navbar/Navbar";
 import "./RecipeForm.css";
@@ -9,6 +9,7 @@ const RecipeForm = () => {
   const imageHandler = (e) => {
     const newdata = { ...data };
     newdata[e.target.id] = e.target.value;
+    
     setData(newdata);
     console.log(newdata);
   };
@@ -42,6 +43,8 @@ const RecipeForm = () => {
     dispatch(postRecipe(data));
     alert("Recipe was sucessfully created");
   };
+
+
 
   useEffect(() => {}, [data]);
   return (
@@ -111,17 +114,21 @@ const RecipeForm = () => {
         <label>Diets: </label>
         <br />
         <select onChange={(e) => onChange(e)} id="diets" selected={data.diets}>
-          <option value="gluten free">Gluten Free</option>
-          <option value="ketogenic">Ketogenic</option>
-          <option value="vegetarian">Vegetarian</option>
-          <option value="dairy free">Dairy free</option>
-          <option value="lacto ovo vegetarian">Lacto Ovo-Vegetarian</option>
-          <option value="pescatarian">Pescatarian</option>
-          <option value="paleolithic">Paleo</option>
-          <option value="primal">Primal</option>
-          <option value="whole 30">Whole 30</option>
-          <option value="vegan">Vegan</option>
+        
+          <option value="0">Gluten Free</option>
+          <option value="2">Ketogenic</option>
+          <option value="3">Vegetarian</option>
+          <option value="4">Dairy free</option>
+          <option value="5">Lacto Ovo-Vegetarian</option>
+          <option value="6">Pescatarian</option>
+          <option value="7">Paleo</option>
+          <option value="8">Primal</option>
+          <option value="9">Whole 30</option>
+          
         </select>
+
+
+
         <button>Submit</button>
       </form>
     </div>

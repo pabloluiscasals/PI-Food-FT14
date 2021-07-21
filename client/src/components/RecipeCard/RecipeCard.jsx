@@ -1,10 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
+
 const RecipeCard = ({ recipe, loading, errormsg }) => {
   if (loading) {
     return <h2> Loading...</h2>;
   }
+  
   const Join = (diets) => {
+    console.log(recipe.types);
     return diets ? diets.join(", ") : diets;
   };
   return (

@@ -4,6 +4,12 @@
 
 # Individual Project - Henry Food
 
+## The individual project of the bootcamp of soyhenry.com consisted in developing a SPA(SIngle Page Aplication) using a food API. It can list a group of recipes, filter then by type of diet and sort by name or qualification.
+## You can also look for a recipe by its name and create a new recipe and store it in a database.
+## In this SPA I used, React, Redux, Express, Sequelize and POstgreSQL. All tools we used during the bootcamp.
+
+
+============================================================================
 <p align="right">
   <img height="200" src="./cooking.png" />
 </p>
